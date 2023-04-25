@@ -51,8 +51,8 @@ int _printf(const char *format, ...)
 				return (-1);
 			p_chars += p;
 		}
-		print_buffer(buffer, &buffer_index);
-		va_end(list);
-		return (p_chars);
 	}
+	 print_buffer(buffer, &buffer_index);
+	 va_end(l);
+	 return (p_chars);
 }

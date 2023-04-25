@@ -18,7 +18,7 @@ int print_unsigned(va_list type, char buffer[], int flag, int w, int pre, int si
 	num = convert_size_unsgnd(num, size);
 	if (num == 0)
 		buffer[i--] = '0';
-	buffer[BUFF_SIZE - 1] = '\0';
+	buffer[BUFFER_SIZE - 1] = '\0';
 	while (num > 0)
 	{
 		buffer[i--] = (num % 10) + '0';
@@ -39,7 +39,7 @@ int print_unsigned(va_list type, char buffer[], int flag, int w, int pre, int si
  */
 int print_octal(va_list type, char buffer[], int flag, int w, int pre, int size)
 {
-	int i = BUFF_SIZE - 2;
+	int i = BUFFER_SIZE - 2;
 	unsigned long int num = va_arg(type, unsigned long int);
 	unsigned long int init_num = num;
 
@@ -48,7 +48,7 @@ int print_octal(va_list type, char buffer[], int flag, int w, int pre, int size)
 	num = convert_size_unsgnd(num, size);
 	if (num == 0)
 		buffer[i--] = '0';
-	buffer[BUFF_SIZE - 1] = '\0';
+	buffer[BUFFER_SIZE - 1] = '\0';
 	while (num > 0)
 	{
 		buffer[i--] = (num % 8) + '0';
@@ -101,15 +101,15 @@ int print_hexa_upper(va_list type, char buffer[], int flag, int w, int pre, int 
  */
 int print_hexa(va_list type, char map[], char buffer[], int flag, char flag_ch, int w, int pre, int size)
 {
-	int i = BUFF_SIZE - 2;
+	int i = BUFFER_SIZE - 2;
 	unsigned long int num = va_arg(type, unsigned long int);
 	unsigned long int init_num = num;
 
 	UNUSED(w);
-	num = convert_size_unsignd(num, size);
+	num = convert_size_unsgnd(num, size);
 	if (num == 0)
 		buffer[i--] = '0';
-	buffer[BUFF_SIZE - 1] = '\0';
+	buffer[BUFFER_SIZE - 1] = '\0';
 	while (num > 0)
 	{
 		buffer[i--] = map[num % 16];

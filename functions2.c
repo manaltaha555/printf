@@ -14,7 +14,7 @@ int print_pointer(va_list type, char buffer[], int flag, int w, int pre, int siz
 {
 	char extra_c = 0, pad = ' ';
 
-	int index = BUFF_SIZE - 2, length = 2, pad_start = 1; 
+	int index = BUFFER_SIZE - 2, length = 2, pad_start = 1; 
 
         unsigned long num_add;
 
@@ -28,7 +28,7 @@ int print_pointer(va_list type, char buffer[], int flag, int w, int pre, int siz
         UNUSED(size);
 	if (add == NULL)
 		return (write(1, "(nil)", 5));
-	buffer[BUFF_SIZE - 1] = '\0';
+	buffer[BUFFER_SIZE - 1] = '\0';
 
         UNUSED(pre);
 
@@ -36,7 +36,7 @@ int print_pointer(va_list type, char buffer[], int flag, int w, int pre, int siz
 	while (num_add > 0)
 	{
 		buffer[index--] = map[num_add % 16];
-		num_addrs /= 16;
+		num_add /= 16;
 		length++;
 	}
 	if ((flag & F_ZERO) && !(flag & F_MINUS))
@@ -46,7 +46,7 @@ int print_pointer(va_list type, char buffer[], int flag, int w, int pre, int siz
 	else if (flag & F_SPACE)
 		extra_c = ' ', length++;
 	index++;
-	return (write_pointer(buffer, ind, length, w, flag, pad, extra_c, pad_start));
+	return (write_pointer(buffer, index, length, w, flag, pad, extra_c, pad_start));
 }
 /**
  * print_non_printable - Prints ascii codes in hexa of non printable chars
@@ -112,7 +112,7 @@ int print_reverse(va_list type, char buffer[], int flag, int w, int pre, int siz
 	if (str == NULL)
 	{
 		UNUSED(pre);
-		str = "(Null)"
+		str = "(Null)";
 	}
 	while (str[i])
 		i++;
