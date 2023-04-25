@@ -30,11 +30,11 @@ int _printf(const char *format, ...)
 		return (-1);
 	va_start(l, format);
 
-	for (j = 0; format && format[i] != '\0'; i++)
+	for (j = 0; format && format[j] != '\0'; j++)
 	{
-		if (format[i] != '%')
+		if (format[j] != '%')
 		{
-			buffer[buffer_index++] = format[i];
+			buffer[buffer_index++] = format[j];
 			print_buffer(buffer, &buffer_index);
 			p_chars += 1;
 		}
@@ -46,7 +46,7 @@ int _printf(const char *format, ...)
 			precision = get_precision(format, &j, l);
 			size = get_size(format, &j);
 			j++;
-			p = handle_print(format, &j, list, buffer, flag, width, precision, size);
+			p = handle_print(format, &j, l, buffer, flag, width, precision, size);
 			if (p == -1)
 				return (-1);
 			p_chars += p;

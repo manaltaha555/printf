@@ -33,9 +33,9 @@ int print_pointer(va_list type, char buffer[], int flag, int w, int pre, int siz
         UNUSED(pre);
 
 	num_add= (unsigned long)add;
-	while (num_addrs > 0)
+	while (num_add > 0)
 	{
-		buffer[ind--] = map[num_add % 16];
+		buffer[index--] = map[num_add % 16];
 		num_addrs /= 16;
 		length++;
 	}
@@ -94,7 +94,7 @@ int print_non_printable(va_list type, char buffer[], int flag, int w, int pre, i
  * @size: Size specifier
  * Return: Numbers of characters printed
  */
-int print_reverse(va_list type, char buffer[], int flag, int w, int pre int size)
+int print_reverse(va_list type, char buffer[], int flag, int w, int pre, int size)
 {
 	char *str;
 	int i, count = 0;

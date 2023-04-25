@@ -14,7 +14,7 @@ int print_char(va_list t, char buffer[], int flag, int w, int pre, int size)
 {
 	char c = va_arg(t, int);
 
-	return (handle_char(c, buffer, flag, w, pre, size));
+	return (handle_write_char(c, buffer, flag, w, pre, size));
 }
 /**
  *print_string - prints the string
@@ -32,7 +32,7 @@ int print_string(va_list t, char buffer[], int flag, int w, int pre, int size)
 	char *str = va_arg(t, char *);
 
 	UNUSED(buffer);
-	UNUSED(flags);
+	UNUSED(flag);
 	UNUSED(w);
 	UNUSED(pre);
 	UNUSED(size);
@@ -84,25 +84,25 @@ int print_binary(va_list t, char buffer[], int flag, int w, int pre, int size)
 
 	UNUSED(buffer);
 	UNUSED(flag);
-	UNUSED(width);
-	UNUSED(precision);
+	UNUSED(w);
+	UNUSED(pre);
 	UNUSED(size);
 
 	n = va_arg(t, unsigned int);
 	m = 2147483648;
-	for (j = 1; j < 32; i++)
+	for (j = 1; j < 32; j++)
 	{
 		m /= 2;
 		a[j] = (n / m);
 	}
-	for (i = 0; j < 32; i++)
+	for (j = 0; j < 32; j++)
 	{
 		sum += a[j];
 		if (sum || j == 31)
 		{
-			char y = '0' + a[i];
+			char y = '0' + a[j];
 
-			write(1, &z, 1);
+			write(1, &y, 1);
 			count++;
 		}
 	}
