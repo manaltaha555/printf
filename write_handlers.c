@@ -35,7 +35,7 @@ int handle_write_char(char s, char buffer[],
 
 		if (flags & F_MINUS)
 			return (write(1, &buffer[0], 1) +
-					write(1, &buffer[BUFF_SIZE - i - 1], width - 1));
+					write(1, &buffer[BUFFER_SIZE - i - 1], width - 1));
 		else
 			return (write(1, &buffer[BUFFER_SIZE - i - 1], width - 1) +
 					write(1, &buffer[0], 1));
@@ -60,7 +60,7 @@ int handle_write_char(char s, char buffer[],
 int write_number(int is_negative, int ind, char buffer[],
 	int flags, int width, int precision, int size)
 {
-	int length = BUFF_SIZE - ind - 1;
+	int length = BUFFER_SIZE - ind - 1;
 	char padd = ' ', extra_ch = 0;
 
 	UNUSED(size);

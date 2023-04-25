@@ -11,7 +11,7 @@
  */
 int print_unsigned(va_list type, char buffer[], int flag, int w, int pre, int size)
 {
-	int i = BUFF_SIZE - 2;
+	int i = BUFFER_SIZE - 2;
 
 	unsigned long int num = va_arg(type, unsigned long int);
 
