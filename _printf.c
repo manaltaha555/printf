@@ -18,7 +18,7 @@ void print_buffer(char buffer[], int *buffer_index)
  *Return: number of printed characters
  *
  */
-int _printf(const char *format)
+int _printf(const char *format, ...)
 {
 	int j, p = 0, p_chars = 0;
 	int flag, width, precision, size, buffer_index = 0;
