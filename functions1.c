@@ -25,7 +25,7 @@ int print_unsigned(va_list type, char buffer[], int flag, int w, int pre, int si
 		num /= 10;
 	}
 	i++;
-	return (write_unsignd(0, i, buffer, flag, w, pre, size));
+	return (write_unsgnd(0, i, buffer, flag, w, pre, size));
 }
 /**
  * print_octal - Prints an unsigned number in octal
@@ -57,7 +57,7 @@ int print_octal(va_list type, char buffer[], int flag, int w, int pre, int size)
 	if (flag & F_HASH && init_num != 0)
 		buffer[i--] = '0';
 	i++;
-	return (write_unsignd(0, i, buffer, flag, w, pre, size));
+	return (write_unsgnd(0, i, buffer, flag, w, pre, size));
 }
 /**
  * print_hexadecimal - Prints an unsigned number in hexadecimal notation
@@ -121,6 +121,6 @@ int print_hexa(va_list type, char map[], char buffer[], int flag, char flag_ch, 
 		buffer[i--] = '0';
 	}
 	i++;
-	return (write_unsignd(0, i, buffer, flag, w, pre, size));
+	return (write_unsgnd(0, i, buffer, flag, w, pre, size));
 }
 

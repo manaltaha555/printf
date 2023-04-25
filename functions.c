@@ -66,6 +66,69 @@ int print_string(va_list t, char buffer[], int flag, int w, int pre, int size)
 	return (write(1, str, length));
 }
 /**
+ * print_percent - Prints a percent sign
+ * @type: Lista of arguments
+ * @buffer: Buffer array to handle print
+ * @flag:  Calculates active flags
+ * @w: get width.
+ * @pre Precision specificatin
+ * @size: Size specifier
+ * Return: Number of chars printed
+ */
+
+int print_percent(va_list type, char buffer[], int flag, int w, int pre, int size)
+{
+
+        UNUSED(type);
+
+        UNUSED(buffer);
+
+        UNUSED(flag);
+
+        UNUSED(w);
+
+        UNUSED(pre);
+
+        UNUSED(size);
+
+        return (write(1, "%%", 1));
+}
+/**
+ * print_int - Print int
+ * @type: Lista of arguments
+ * @buffer: Buffer array to handle print
+ * @flag:  Calculates active flags
+ * @width: get width.
+ * @pre: Precision specification
+ * @size: Size specifier
+ * Return: Number of chars printed
+ */
+int print_int(va_list type, char buffer[], int flag, int w, int pre, int size)
+{
+	int i = BUFFER_SIZE - 2;
+	int is_negative = 0;
+	long int n = va_arg(type, long int);
+	unsigned long int num;
+
+	n = convert_size_number(n, size);
+	if (n == 0)
+		buffer[i--] = '0';
+	buffer[BUFFER_SIZE - 1] = '\0';
+	num = (unsigned long int)n;
+	if (n < 0)
+	{
+		num = (unsigned long int)((-1) * n);
+		is_negative = 1;
+	}
+	while (num > 0)
+	{
+		buffer[i--] = (num % 10) + '0';
+		num /= 10;
+	}
+	i++;
+	return (write_number(is_negative, i, buffer, flag, w, pre, size));
+}
+/**
  *print_binary - prints an unsigned number
  *@t: arguments
  *@buffer: to handelling printf process
