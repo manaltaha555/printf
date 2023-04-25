@@ -14,7 +14,7 @@ int print_char(va_list t, char buffer[], int flag, int w, int pre, int size)
 {
 	char c = va_arg(t, int);
 
-	return (handle_char(c, buffer, flag, width, pre, size));
+	return (handle_char(c, buffer, flag, w, pre, size));
 }
 /**
  *print_string - prints the string

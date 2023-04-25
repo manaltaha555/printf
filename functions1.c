@@ -45,7 +45,7 @@ int print_octal(va_list type, char buffer[], int flag, int w, int pre, int size)
 
 	UNUSED(w);
 
-	num = convert_size_unsgnd(num, size);
+	num = convert_size_unsignd(num, size);
 	if (num == 0)
 		buffer[i--] = '0';
 	buffer[BUFF_SIZE - 1] = '\0';
@@ -71,7 +71,7 @@ int print_octal(va_list type, char buffer[], int flag, int w, int pre, int size)
  */
 int print_hexadecimal(va_list type, char buffer[], int flag, int w, int pre, int size)
 {
-	return (print_hexa(type, "0123456789abcdef", buffer, flag, 'x', w, precision, size));
+	return (print_hexa(type, "0123456789abcdef", buffer, flag, 'x', w, pre, size));
 }
 /**
  * print_hexa_upper - Prints an unsigned number in upper hexadecimal notation
@@ -121,6 +121,6 @@ int print_hexa(va_list type, char map[], char buffer[], int flag, char flag_ch, 
 		buffer[i--] = '0';
 	}
 	i++;
-	return (write_unsgnd(0, i, buffer, flag, w, pre, size));
+	return (write_unsignd(0, i, buffer, flag, w, pre, size));
 }
 

@@ -111,7 +111,7 @@ int print_reverse(va_list type, char buffer[], int flag, int w, int pre int size
         str = va_arg(type, char *);
 	if (str == NULL)
 	{
-		UNUSED(precision);
+		UNUSED(pre);
 		str = "(Null)"
 	}
 	while (str[i])
